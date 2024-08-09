@@ -11,7 +11,7 @@ namespace LinkedList
             head = null;
         }
 
-        // Insert a node at a specific position (1-based index)
+        // Insert a node at a specific position
         public void Insert(int position, T data)
         {
             Node<T> newNode = new Node<T>(data);
@@ -48,7 +48,7 @@ namespace LinkedList
             previous.Next = newNode;
         }
 
-        // Delete a node at a specific position (1-based index)
+        // Delete a node at a specific position
         public void Delete(int position)
         {
             if (position < 1)
