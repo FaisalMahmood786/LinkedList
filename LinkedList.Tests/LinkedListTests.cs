@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace LinkedList.Tests
 {
@@ -40,6 +35,39 @@ namespace LinkedList.Tests
             list.Insert(2, 30);
             list.Insert(2, 20); 
             Assert.AreEqual("10 -> 20 -> 30", list.PrintList());
+        }
+        [Test]
+        public void Delete_AtPosition1()
+        {
+            list.Insert(1, 10);
+            list.Insert(2, 20);
+            list.Delete(1);
+            Assert.AreEqual("20", list.PrintList());
+        }
+
+        [Test]
+        public void Delete_AtPosition2()
+        {
+            list.Insert(1, 10);
+            list.Insert(2, 20);
+            list.Delete(2);
+            Assert.AreEqual("10", list.PrintList());
+        }
+
+        [Test]
+        public void Delete_InMiddle()
+        {
+            list.Insert(1, 10);
+            list.Insert(2, 20);
+            list.Insert(3, 30);
+            list.Delete(2);
+            Assert.AreEqual("10 -> 30", list.PrintList());
+        }
+
+        [Test]
+        public void PrintList_EmptyList()
+        {
+            Assert.AreEqual(string.Empty, list.PrintList());
         }
     }
 }

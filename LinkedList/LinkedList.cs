@@ -47,8 +47,47 @@ namespace LinkedList
             newNode.Next = current;
             previous.Next = newNode;
         }
-        // Print the string representation of the list
-        public string PrintList()
+
+        // Delete a node at a specific position (1-based index)
+        public void Delete(int position)
+        {
+            if (position < 1)
+            {
+                throw new ArgumentOutOfRangeException("Position must be >= 1");
+            }
+
+            if (head == null)
+            {
+                throw new InvalidOperationException("Cannot delete from an empty list");
+            }
+
+            if (position == 1)
+            {
+                head = head.Next;
+                return;
+            }
+
+            Node<T> current = head;
+            Node<T> previous = null;
+            int index = 1;
+
+            while (current != null && index < position)
+            {
+                previous = current;
+                current = current.Next;
+                index++;
+            }
+
+            if (current == null)
+            {
+                throw new ArgumentOutOfRangeException("Position is out of bounds");
+            }
+
+            previous.Next = current.Next;
+        }
+       
+    // Print the string representation of the list
+    public string PrintList()
         {
             if (head == null)
             {
